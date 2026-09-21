@@ -24,15 +24,25 @@ Quyết định threshold Similar/Dissimilar.
 Pipeline được giữ tách biệt:
 
 Image
+
   ↓
+  
 TV1 – Preprocessing
+
   ↓
+  
 TV2 – Wavelet Transform
+
   ↓
+  
 TV3 – Wavelet Hash
+
   ↓
+  
 TV4 – Hamming Distance
+
   ↓
+  
 TV5 – Evaluation
 
 **2. File triển khai**
@@ -103,8 +113,11 @@ Dạng mapping
 
 coefficients = {
     "LL": LL,
+    
     "LH": LH,
+    
     "HL": HL,
+    
     "HH": HH,
 }
 
@@ -145,6 +158,7 @@ median = median(LL)
 Mỗi coefficient được chuyển thành một bit theo quy tắc:
 
 coefficient > median → 1
+
 coefficient ≤ median → 0
 
 Ví dụ:
@@ -385,15 +399,25 @@ distance = hamming.calculate(hash_01, hash_02)
 Đây cũng chính là API mà integration test hiện tại của project đang hướng tới:
 
 WaveletTransform()
+
       ↓
+      
 transform(...)
+
       ↓
+      
 WaveletHash()
+
       ↓
+
 generate(...)
+
       ↓
+      
 HammingDistance()
+
       ↓
+      
 calculate(...)
 
 **15. Unit Test**
@@ -463,9 +487,13 @@ Wavelet Hash không phải là một cryptographic hash như SHA-256.
 Mục tiêu của nó là tạo perceptual hash:
 
 ảnh
+
  ↓
+ 
 đặc trưng Wavelet
+
  ↓
+ 
 bit representation
 
 Do đó hai ảnh có nội dung tương đồng có thể có hash gần nhau, trong khi hai
@@ -488,15 +516,25 @@ thước hash cố định, lượng tử hóa theo median và trả về chuỗ
 Thiết kế này đảm bảo:
 
 TV2
+
  ↓
+ 
 Wavelet coefficients
+
  ↓
+ 
 TV3
+
  ↓
+ 
 64-bit Wavelet Hash
+
  ↓
+ 
 TV4
+
  ↓
+ 
 Hamming Distance
 
 đồng thời giữ cho TV3 không phụ thuộc chặt vào cách TV2 triển khai nội bộ.
