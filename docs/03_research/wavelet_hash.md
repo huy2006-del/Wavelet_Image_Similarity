@@ -56,9 +56,13 @@ Sau Wavelet Transform, ảnh được biểu diễn bởi các hệ số Wavelet
 Với DWT 2-D ở một mức, ta thường có bốn nhóm hệ số:
 
 ┌──────────────┬──────────────┐
+
 │      LL      │      LH      │
+
 ├──────────────┼──────────────┤
+
 │      HL      │      HH      │
+
 └──────────────┴──────────────┘
 
 Trong đó:
